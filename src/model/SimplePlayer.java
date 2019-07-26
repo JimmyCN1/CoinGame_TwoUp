@@ -6,38 +6,39 @@ import model.interfaces.Player;
 
 public class SimplePlayer implements Player {
   private String playerId;
-  private String name;
+  private String playerName;
   private Integer bankRoll;
+  private Integer currentBet;
   
   public SimplePlayer(String playerId, String playerName, Integer bankRoll) {
     this.playerId = playerId;
-    this.name = playerName;
+    this.playerName = playerName;
     this.bankRoll = bankRoll;
   }
   
   @Override
   public String getPlayerName() {
-    return null;
+    return this.playerName;
   }
   
   @Override
   public void setPlayerName(String playerName) {
-  
+    this.playerName = playerName;
   }
   
   @Override
   public int getPoints() {
-    return 0;
+    return this.bankRoll;
   }
   
   @Override
   public void setPoints(int points) {
-  
+    this.bankRoll = points;
   }
   
   @Override
   public String getPlayerId() {
-    return null;
+    return this.playerId;
   }
   
   @Override
@@ -47,7 +48,7 @@ public class SimplePlayer implements Player {
   
   @Override
   public int getBet() {
-    return 0;
+    return this.currentBet;
   }
   
   @Override

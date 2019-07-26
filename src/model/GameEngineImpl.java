@@ -9,6 +9,7 @@ import view.interfaces.GameEngineCallback;
 import java.util.Collection;
 
 public class GameEngineImpl implements GameEngine {
+  
   @Override
   public void spinPlayer(Player player, int initialDelay1, int finalDelay1, int delayIncrement1, int initialDelay2, int finalDelay2, int delayIncrement2) throws IllegalArgumentException {
   

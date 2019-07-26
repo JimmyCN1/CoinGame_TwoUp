@@ -108,7 +108,7 @@ public interface GameEngine {
   public abstract void addPlayer(Player player);
   
   /**
-   * @param id - id of player to retrieve (null if not found)
+   * @param id - id of player to retrieve (null if® not found)
    * @return - the Player or null if Player does not exist
    */
   public abstract Player getPlayer(String id);
@@ -121,10 +121,10 @@ public interface GameEngine {
   
   /**
    * @param gameEngineCallback <pre> a client specific implementation of GameEngineCallback used to perform display updates etc.
-   *                           Callbacks should be called in the order they were added
-   *                           <b>NOTE:</b> you will use a different implementation of the GameEngineCallback
-   *                                 for the console (assignment 1) and GUI (assignment 2) versions
-   *                           </pre>
+   *                                                     Callbacks should be called in the order they were added
+   *                                                     <b>NOTE:</b> you will use a different implementation of the GameEngineCallback
+   *                                                           for the console (assignment 1) and GUI (assignment 2) versions
+   *                                                     </pre>
    * @see view.interfaces.GameEngineCallback
    */
   public abstract void addGameEngineCallback(GameEngineCallback gameEngineCallback);
