@@ -57,16 +57,19 @@ public class GameEngineCallbackImpl implements GameEngineCallback {
   
   @Override
   public void spinnerResult(CoinPair coinPair, GameEngine engine) {
-    logger.log(Level.INFO, String.format("%sINFO: Spinner, final result=%s, %s",
-            timeClassMethodToString(), coinPair.getCoin1().toString(), coinPair.getCoin2().toString()));
+    logger.log(Level.INFO, String.format("%sINFO: Spinner, final result=%s, %s%sINFO: Final Player Results\n%s",
+            timeClassMethodToString(), coinPair.getCoin1().toString(), coinPair.getCoin2().toString(),
+            timeClassMethodToString(), finalPlayerResultsToString(engine)));
     // TODO: complete this method to log intermediate results
   }
   
-  public void spinnerResult(GameEngine gameEngine) {
-    logger.log(Level.INFO, String.format("%sINFO: Final Player Results\n%s",
-            timeClassMethodToString(), finalPlayerResultsToString(gameEngine)));
-  }
+  // overloaded method to log final results of players
+//  private void spinnerResult(GameEngine gameEngine) {
+//    logger.log(Level.INFO, String.format("%sINFO: Final Player Results\n%s",
+//            timeClassMethodToString(), finalPlayerResultsToString(gameEngine)));
+//  }
   
+  // returns header string of each log method
   private String timeClassMethodToString() {
     // get name of caller method
     StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
@@ -75,10 +78,12 @@ public class GameEngineCallbackImpl implements GameEngineCallback {
             this.dateTimeString, getClass().getName(), callerMethod);
   }
   
+  // returns string of a coin flip
   private String coinFlipToString(Coin coin) {
     return String.format("coin %s flipped to %s", coin.getNumber(), coin.getFace());
   }
   
+  // returns string of final results for all players
   private String finalPlayerResultsToString(GameEngine gameEngine) {
     String finalPlayerResults = "";
     for (Player player : gameEngine.getAllPlayers()) {

@@ -35,7 +35,8 @@ public class SimpleTestClient {
     
     // create some test players
     Player[] players = new Player[]{new SimplePlayer("1", "The Coin Master", 1000),
-            new SimplePlayer("2", "The Loser", 750), new SimplePlayer("3", "The Dabbler", 500)};
+            new SimplePlayer("2", "The Loser", 750),
+            new SimplePlayer("3", "The Dabbler", 500)};
     
     // add logging callback
     gameEngine.addGameEngineCallback(new GameEngineCallbackImpl());
