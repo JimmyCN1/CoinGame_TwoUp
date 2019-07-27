@@ -31,6 +31,7 @@ public class GameEngineImpl implements GameEngine {
       }
       initialDelay1 += delayIncrement1;
     }
+    gameEngineCallback.playerResult(player, player.getResult(), this);
   }
   
   @Override
@@ -47,11 +48,23 @@ public class GameEngineImpl implements GameEngine {
       }
       initialDelay1 += delayIncrement1;
     }
+    applyBetResults(spinner);
   }
   
   @Override
   public void applyBetResults(CoinPair spinnerResult) {
-  
+    for (Player p : players) {
+      if (p.getBetType() == BetType.COIN1) {
+        BetType.COIN1.applyWinLoss(p, spinnerResult);
+      } else if (p.getBetType() == BetType.COIN2) {
+        BetType.COIN2.applyWinLoss(p, spinnerResult);
+      } else if (p.getBetType() == BetType.BOTH) {
+        BetType.BOTH.applyWinLoss(p, spinnerResult);
+      } else {
+        BetType.NO_BET.applyWinLoss(p, spinnerResult);
+      }
+    }
+    gameEngineCallback.spinnerResult(spinnerResult, this);
   }
   
   // if id exists, then replaces the player with the new player
@@ -109,6 +122,7 @@ public class GameEngineImpl implements GameEngine {
     boolean validBet = false;
     if (bet > 0 && player.getPoints() > bet) {
       validBet = true;
+      player.setBet(bet);
       player.setBetType(betType);
     } else {
       player.setBet(0);

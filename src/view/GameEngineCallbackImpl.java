@@ -42,6 +42,8 @@ public class GameEngineCallbackImpl implements GameEngineCallback {
     // final results logged at Level.INFO
     logger.log(Level.INFO, String.format("%s, final result=%s, %s", player.getPlayerName(),
             coinPair.getCoin1().toString(), coinPair.getCoin2().toString()));
+    System.out.println(String.format("%s, final result=%s, %s", player.getPlayerName(),
+            coinPair.getCoin1().toString(), coinPair.getCoin2().toString()));
     // TODO: complete this method to log results
   }
   
@@ -49,7 +51,10 @@ public class GameEngineCallbackImpl implements GameEngineCallback {
   public void spinnerResult(CoinPair coinPair, GameEngine engine) {
     logger.log(Level.INFO, String.format("Spinner, final result=%s\n",
             coinPair.toString()));
-    logger.log(Level.INFO, "Final Player Results\n", finalPlayerResultsToString(engine));
+    System.out.println(String.format("Spinner, final result=%s\n",
+            coinPair.toString()));
+    logger.log(Level.INFO, String.format("Final Player Results\n%s", finalPlayerResultsToString(engine)));
+    System.out.println(String.format("Final Player Results\n%s", finalPlayerResultsToString(engine)));
     // TODO: complete this method to log intermediate results
   }
   

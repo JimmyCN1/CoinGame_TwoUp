@@ -11,29 +11,44 @@ import java.io.Serializable;
  *
  * @author Caspar Ryan
  */
-public enum BetType implements Serializable, Comparable<BetType> {
+public enum BetType {
   COIN1 {
     @Override
     public void applyWinLoss(Player player, CoinPair spinnerResult) {
       // TODO implementation
+      if (player.getResult().getCoin1().equals(spinnerResult.getCoin1())) {
+        player.setPoints(player.getPoints() + player.getBet());
+      } else {
+        player.setPoints(player.getPoints() - player.getBet());
+      }
     }
   },
   COIN2 {
     @Override
     public void applyWinLoss(Player player, CoinPair spinnerResult) {
       // TODO implementation
+      if (player.getResult().getCoin2().equals(spinnerResult.getCoin2())) {
+        player.setPoints(player.getPoints() + player.getBet());
+      } else {
+        player.setPoints(player.getPoints() - player.getBet());
+      }
     }
   },
   BOTH {
     @Override
     public void applyWinLoss(Player player, CoinPair spinnerResult) {
       // TODO implementation
+      if (player.getResult().equals(spinnerResult)) {
+        player.setPoints(player.getPoints() + (player.getBet() * 2));
+      } else {
+        player.setPoints((player.getPoints() - player.getBet()));
+      }
     }
   },
   NO_BET {
     @Override
     public void applyWinLoss(Player player, CoinPair spinnerResult) {
-      // TODO implementation
+      return;
     }
   };
   

@@ -49,7 +49,7 @@ public class SimpleTestClient {
       // NOTE: we are passing a different BetType each time!
       gameEngine.placeBet(player, 100, BetType.values()[enumOrdinal++ % BetType
               .values().length]);
-      gameEngine.spinPlayer(player, 100, 1000, 100, 50, 500, 50);
+      gameEngine.spinPlayer(player, 100, 1000, 1000, 50, 500, 50);
     }
     
     logger.log(Level.INFO, "SPINNING ...");
