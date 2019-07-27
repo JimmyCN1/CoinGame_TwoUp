@@ -62,6 +62,11 @@ public class GameEngineCallbackImpl implements GameEngineCallback {
     // TODO: complete this method to log intermediate results
   }
   
+  public void spinnerResult(GameEngine gameEngine) {
+    logger.log(Level.INFO, String.format("%sINFO: Final Player Results\n%s",
+            timeClassMethodToString(), finalPlayerResultsToString(gameEngine)));
+  }
+  
   private String timeClassMethodToString() {
     // get name of caller method
     StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
@@ -74,5 +79,11 @@ public class GameEngineCallbackImpl implements GameEngineCallback {
     return String.format("coin %s flipped to %s", coin.getNumber(), coin.getFace());
   }
   
-  // TODO: implement rest of interface
+  private String finalPlayerResultsToString(GameEngine gameEngine) {
+    String finalPlayerResults = "";
+    for (Player player : gameEngine.getAllPlayers()) {
+      finalPlayerResults += player.toString();
+    }
+    return finalPlayerResults;
+  }
 }

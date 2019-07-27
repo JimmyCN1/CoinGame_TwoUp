@@ -87,7 +87,7 @@ public class SimplePlayer implements Player {
   
   @Override
   public String toString() {
-    return String.format("Player: id=%s, name=%s, bet=%s, betType=%s, points=%s RESULT .. %s",
+    return String.format("Player: id=%s, name=%s, bet=%s, betType=%s, points=%s RESULT .. %s\n",
             this.playerId, this.playerName, this.currentBet, this.betType, this.initialPoints, this.coinPairResult.toString());
   }
 }
