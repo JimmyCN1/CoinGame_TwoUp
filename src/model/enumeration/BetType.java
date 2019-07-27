@@ -3,13 +3,15 @@ package model.enumeration;
 import model.interfaces.CoinPair;
 import model.interfaces.Player;
 
+import java.io.Serializable;
+
 /**
  * Provided enum type for Further Programming representing a type of Bet<br>
  * See inline comments for where you need to provide additional code
  *
  * @author Caspar Ryan
  */
-public enum BetType {
+public enum BetType implements Serializable, Comparable<BetType> {
   COIN1 {
     @Override
     public void applyWinLoss(Player player, CoinPair spinnerResult) {

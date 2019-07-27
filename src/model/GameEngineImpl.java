@@ -4,6 +4,7 @@ import model.enumeration.BetType;
 import model.interfaces.CoinPair;
 import model.interfaces.GameEngine;
 import model.interfaces.Player;
+import view.GameEngineCallbackImpl;
 import view.interfaces.GameEngineCallback;
 
 import java.util.ArrayList;
@@ -11,17 +12,41 @@ import java.util.Collection;
 import java.util.List;
 
 public class GameEngineImpl implements GameEngine {
+  private GameEngineCallback gameEngineCallback = new GameEngineCallbackImpl();
+  private CoinPairImpl spinner = new CoinPairImpl();
   private List<Player> players = new ArrayList<>();
   private List<GameEngineCallback> gameEngineCallbacks = new ArrayList<>();
   
   @Override
   public void spinPlayer(Player player, int initialDelay1, int finalDelay1, int delayIncrement1, int initialDelay2, int finalDelay2, int delayIncrement2) throws IllegalArgumentException {
-  
+    while (initialDelay1 <= finalDelay1) {
+      player.getResult().getCoin1().flip();
+      player.getResult().getCoin2().flip();
+      gameEngineCallback.playerCoinUpdate(player, player.getResult().getCoin1(), this);
+      gameEngineCallback.playerCoinUpdate(player, player.getResult().getCoin2(), this);
+      try {
+        Thread.sleep(initialDelay1);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+      initialDelay1 += delayIncrement1;
+    }
   }
   
   @Override
   public void spinSpinner(int initialDelay1, int finalDelay1, int delayIncrement1, int initialDelay2, int finalDelay2, int delayIncrement2) throws IllegalArgumentException {
-  
+    while (initialDelay1 <= finalDelay1) {
+      spinner.getCoin1().flip();
+      spinner.getCoin2().flip();
+      gameEngineCallback.spinnerCoinUpdate(spinner.getCoin1(), this);
+      gameEngineCallback.spinnerCoinUpdate(spinner.getCoin2(), this);
+      try {
+        Thread.sleep(initialDelay1);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+      initialDelay1 += delayIncrement1;
+    }
   }
   
   @Override
@@ -57,7 +82,6 @@ public class GameEngineImpl implements GameEngine {
       }
     }
     return player;
-    
   }
   
   @Override
@@ -82,6 +106,14 @@ public class GameEngineImpl implements GameEngine {
   
   @Override
   public boolean placeBet(Player player, int bet, BetType betType) {
-    return false;
+    boolean validBet = false;
+    if (bet > 0 && player.getPoints() > bet) {
+      validBet = true;
+      player.setBetType(betType);
+    } else {
+      player.setBet(0);
+      player.setBetType(BetType.NO_BET);
+    }
+    return validBet;
   }
 }

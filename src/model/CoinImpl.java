@@ -9,6 +9,7 @@ public class CoinImpl implements Coin {
   
   public CoinImpl(int coinNumber) {
     this.coinNumber = coinNumber;
+    // randomise initial coinFace
     int num = (int) Math.floor(Math.random() * 2);
     if (num == 0) {
       this.coinFace = CoinFace.HEADS;

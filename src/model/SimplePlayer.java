@@ -10,12 +10,13 @@ public class SimplePlayer implements Player {
   private Integer initialPoints;
   private Integer currentBet;
   private BetType betType;
-  private CoinPair coinPairResult;
+  private CoinPair coinPair;
   
   public SimplePlayer(String playerId, String playerName, Integer initialPoints) {
     this.playerId = playerId;
     this.playerName = playerName;
     this.initialPoints = initialPoints;
+    this.coinPair = new CoinPairImpl();
   }
   
   @Override
@@ -77,17 +78,17 @@ public class SimplePlayer implements Player {
   
   @Override
   public CoinPair getResult() {
-    return this.coinPairResult;
+    return this.coinPair;
   }
   
   @Override
   public void setResult(CoinPair coinPair) {
-    this.coinPairResult = coinPair;
+    this.coinPair = coinPair;
   }
   
   @Override
   public String toString() {
     return String.format("Player: id=%s, name=%s, bet=%s, betType=%s, points=%s RESULT .. %s\n",
-            this.playerId, this.playerName, this.currentBet, this.betType, this.initialPoints, this.coinPairResult.toString());
+            this.playerId, this.playerName, this.currentBet, this.betType, this.initialPoints, this.coinPair.toString());
   }
 }
