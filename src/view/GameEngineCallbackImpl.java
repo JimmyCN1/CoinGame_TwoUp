@@ -9,6 +9,8 @@ import model.interfaces.GameEngine;
 import model.interfaces.Player;
 import view.interfaces.GameEngineCallback;
 
+//import static java.util.logging.Level.FINE;
+
 /**
  * Skeleton implementation of GameEngineCallback showing Java logging behaviour
  *
@@ -26,14 +28,14 @@ public class GameEngineCallbackImpl implements GameEngineCallback {
   @Override
   public void playerCoinUpdate(Player player, Coin coin, GameEngine engine) {
     // intermediate results logged at Level.FINE
-    logger.log(Level.FINE, String.format("%s %s", player.getPlayerName(), coinFlipToString(coin)));
+    logger.log(Level.INFO, String.format("%s %s", player.getPlayerName(), coinFlipToString(coin)));
     System.out.println(String.format("%s %s", player.getPlayerName(), coinFlipToString(coin)));
     // TODO: complete this method to log intermediate results
   }
   
   @Override
   public void spinnerCoinUpdate(Coin coin, GameEngine engine) {
-    logger.log(Level.FINE, String.format("Spinner %s", coinFlipToString(coin)));
+    logger.log(Level.INFO, String.format("Spinner %s", coinFlipToString(coin)));
     System.out.println(String.format("Spinner %s", coinFlipToString(coin)));
   }
   
@@ -49,29 +51,14 @@ public class GameEngineCallbackImpl implements GameEngineCallback {
   
   @Override
   public void spinnerResult(CoinPair coinPair, GameEngine engine) {
-    logger.log(Level.INFO, String.format("Spinner, final result=%s\n",
+    logger.log(Level.INFO, String.format("Spinner, final result=%s",
             coinPair.toString()));
-    System.out.println(String.format("Spinner, final result=%s\n",
+    System.out.println(String.format("Spinner, final result=%s",
             coinPair.toString()));
     logger.log(Level.INFO, String.format("Final Player Results\n%s", finalPlayerResultsToString(engine)));
     System.out.println(String.format("Final Player Results\n%s", finalPlayerResultsToString(engine)));
     // TODO: complete this method to log intermediate results
   }
-  
-  // overloaded method to log final results of players
-//  private void spinnerResult(GameEngine gameEngine) {
-//    logger.log(Level.INFO, String.format("%sINFO: Final Player Results\n%s",
-//            timeClassMethodToString(), finalPlayerResultsToString(gameEngine)));
-//  }
-  
-  // returns header string of each log method
-//  private String timeClassMethodToString() {
-//    // get name of caller method
-//    StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-//    String callerMethod = stackTraceElements[1].getMethodName();
-//    return String.format("%s %s\n%s\n",
-//            this.dateTimeString, getClass().getName(), callerMethod);
-//  }
   
   // returns string of a coin flip
   private String coinFlipToString(Coin coin) {

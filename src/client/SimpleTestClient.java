@@ -49,7 +49,7 @@ public class SimpleTestClient {
       // NOTE: we are passing a different BetType each time!
       gameEngine.placeBet(player, 100, BetType.values()[enumOrdinal++ % BetType
               .values().length]);
-      gameEngine.spinPlayer(player, 100, 1000, 1000, 50, 500, 50);
+      gameEngine.spinPlayer(player, 100, 1000, 100, 50, 500, 50);
     }
     
     logger.log(Level.INFO, "SPINNING ...");
@@ -57,5 +57,44 @@ public class SimpleTestClient {
     gameEngine.spinSpinner(100, 1000, 200, 50, 500, 25);
     
     // TODO reset bets for next round if you were playing again
+    // further testing
+    for (Player player : players) {
+      player.resetBet();
+    }
+    // add extra player
+    gameEngine.addPlayer(new SimplePlayer("4", "The Gambler", 200));
+    // remove player
+    gameEngine.removePlayer(gameEngine.getPlayer("2"));
+    // place negative bet
+    gameEngine.placeBet(gameEngine.getPlayer("3"), -10, BetType.BOTH);
+    // place a bet too big
+    gameEngine.getPlayer("4").resetBet();
+    gameEngine.placeBet(gameEngine.getPlayer("4"), 1000, BetType.BOTH);
+    for (Player player : gameEngine.getAllPlayers()) {
+      System.out.print(player);
+    }
+    
+    // testing hash code generation
+    System.out.println(gameEngine.getPlayer("1").getResult().getCoin1().getFace().hashCode());
+    System.out.println(gameEngine.getPlayer("1").getResult().getCoin2().getFace().hashCode());
+    System.out.println(gameEngine.getPlayer("4").getResult().getCoin1().getFace().hashCode());
+    
+    // make new bets with updated players
+    for (Player player : gameEngine.getAllPlayers()) {
+      gameEngine.addPlayer(player);
+      // mod with BetType length so we always stay in range even if num players increases
+      // NOTE: we are passing a different BetType each time!
+      gameEngine.placeBet(player, 100, BetType.values()[enumOrdinal++ % BetType
+              .values().length]);
+      gameEngine.spinPlayer(player, 100, 1000, 100, 50, 500, 50);
+    }
+    logger.log(Level.INFO, "SPINNING ...");
+    // OutputTrace.pdf was generated with these parameter values (using only first 3 params as per spec)
+    gameEngine.spinSpinner(100, 1000, 200, 50, 500, 25);
+    for (Player player : gameEngine.getAllPlayers()) {
+      System.out.print(player);
+      player.resetBet();
+    }
+    
   }
 }

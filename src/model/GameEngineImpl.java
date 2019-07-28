@@ -20,15 +20,8 @@ public class GameEngineImpl implements GameEngine {
   @Override
   public void spinPlayer(Player player, int initialDelay1, int finalDelay1, int delayIncrement1, int initialDelay2, int finalDelay2, int delayIncrement2) throws IllegalArgumentException {
     while (initialDelay1 <= finalDelay1) {
-      player.getResult().getCoin1().flip();
-      player.getResult().getCoin2().flip();
-      gameEngineCallback.playerCoinUpdate(player, player.getResult().getCoin1(), this);
-      gameEngineCallback.playerCoinUpdate(player, player.getResult().getCoin2(), this);
-      try {
-        Thread.sleep(initialDelay1);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
+      flipCoins(player);
+      timeUntilNextFlip(initialDelay1);
       initialDelay1 += delayIncrement1;
     }
     gameEngineCallback.playerResult(player, player.getResult(), this);
@@ -37,18 +30,33 @@ public class GameEngineImpl implements GameEngine {
   @Override
   public void spinSpinner(int initialDelay1, int finalDelay1, int delayIncrement1, int initialDelay2, int finalDelay2, int delayIncrement2) throws IllegalArgumentException {
     while (initialDelay1 <= finalDelay1) {
-      spinner.getCoin1().flip();
-      spinner.getCoin2().flip();
-      gameEngineCallback.spinnerCoinUpdate(spinner.getCoin1(), this);
-      gameEngineCallback.spinnerCoinUpdate(spinner.getCoin2(), this);
-      try {
-        Thread.sleep(initialDelay1);
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      }
+      flipCoins();
+      timeUntilNextFlip(initialDelay1);
       initialDelay1 += delayIncrement1;
     }
     applyBetResults(spinner);
+  }
+  
+  private void flipCoins(Player player) {
+    player.getResult().getCoin1().flip();
+    player.getResult().getCoin2().flip();
+    gameEngineCallback.playerCoinUpdate(player, player.getResult().getCoin1(), this);
+    gameEngineCallback.playerCoinUpdate(player, player.getResult().getCoin2(), this);
+  }
+  
+  private void flipCoins() {
+    spinner.getCoin1().flip();
+    spinner.getCoin2().flip();
+    gameEngineCallback.spinnerCoinUpdate(spinner.getCoin1(), this);
+    gameEngineCallback.spinnerCoinUpdate(spinner.getCoin2(), this);
+  }
+  
+  private void timeUntilNextFlip(int duration) {
+    try {
+      Thread.sleep(duration);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
   }
   
   @Override
@@ -82,7 +90,6 @@ public class GameEngineImpl implements GameEngine {
     if (!idAlreadyExists) {
       this.players.add(player);
     }
-    
   }
   
   @Override
