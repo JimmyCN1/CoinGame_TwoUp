@@ -28,15 +28,12 @@ public class GameEngineCallbackImpl implements GameEngineCallback {
   @Override
   public void playerCoinUpdate(Player player, Coin coin, GameEngine engine) {
     // intermediate results logged at Level.FINE
-    logger.log(Level.INFO, String.format("%s %s", player.getPlayerName(), coinFlipToString(coin)));
-    System.out.println(String.format("%s %s", player.getPlayerName(), coinFlipToString(coin)));
-    // TODO: complete this method to log intermediate results
+    logger.log(Level.FINE, String.format("%s %s", player.getPlayerName(), coinFlipToString(coin)));
   }
   
   @Override
   public void spinnerCoinUpdate(Coin coin, GameEngine engine) {
-    logger.log(Level.INFO, String.format("Spinner %s", coinFlipToString(coin)));
-    System.out.println(String.format("Spinner %s", coinFlipToString(coin)));
+    logger.log(Level.FINE, String.format("Spinner %s", coinFlipToString(coin)));
   }
   
   @Override
@@ -44,20 +41,13 @@ public class GameEngineCallbackImpl implements GameEngineCallback {
     // final results logged at Level.INFO
     logger.log(Level.INFO, String.format("%s, final result=%s, %s", player.getPlayerName(),
             coinPair.getCoin1().toString(), coinPair.getCoin2().toString()));
-    System.out.println(String.format("%s, final result=%s, %s", player.getPlayerName(),
-            coinPair.getCoin1().toString(), coinPair.getCoin2().toString()));
-    // TODO: complete this method to log results
   }
   
   @Override
   public void spinnerResult(CoinPair coinPair, GameEngine engine) {
     logger.log(Level.INFO, String.format("Spinner, final result=%s",
             coinPair.toString()));
-    System.out.println(String.format("Spinner, final result=%s",
-            coinPair.toString()));
     logger.log(Level.INFO, String.format("Final Player Results\n%s", finalPlayerResultsToString(engine)));
-    System.out.println(String.format("Final Player Results\n%s", finalPlayerResultsToString(engine)));
-    // TODO: complete this method to log intermediate results
   }
   
   // returns string of a coin flip
