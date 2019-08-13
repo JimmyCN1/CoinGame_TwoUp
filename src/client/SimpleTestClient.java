@@ -55,9 +55,7 @@ public class SimpleTestClient {
     logger.log(Level.INFO, "SPINNING ...");
     // OutputTrace.pdf was generated with these parameter values (using only first 3 params as per spec)
     gameEngine.spinSpinner(100, 1000, 200, 50, 500, 25);
-//    gameEngine.applyBetResults(gameEngine);
     
-    // TODO reset bets for next round if you were playing again
     // further testing
     for (Player player : players) {
       player.resetBet();
@@ -73,9 +71,11 @@ public class SimpleTestClient {
     gameEngine.placeBet(gameEngine.getPlayer("4"), 1000, BetType.BOTH);
     
     // testing hash code generation
-    System.out.println(gameEngine.getPlayer("1").getResult().getCoin1().getFace().hashCode());
-    System.out.println(gameEngine.getPlayer("1").getResult().getCoin2().getFace().hashCode());
-    System.out.println(gameEngine.getPlayer("4").getResult().getCoin1().getFace().hashCode());
+    System.out.println("Hash Code Test:");
+    System.out.println("Player 1 Coin 1 hash code: " + gameEngine.getPlayer("1").getResult().getCoin1().getFace().hashCode());
+    System.out.println("Player 1 Coin 2 hash code: " + gameEngine.getPlayer("1").getResult().getCoin2().getFace().hashCode());
+    System.out.println("Player 4 Coin 1 hash code: " + gameEngine.getPlayer("4").getResult().getCoin1().getFace().hashCode());
+    System.out.println();
     
     // make new bets with updated players
     for (Player player : gameEngine.getAllPlayers()) {
@@ -87,7 +87,6 @@ public class SimpleTestClient {
       gameEngine.spinPlayer(player, 100, 1000, 100, 50, 500, 50);
     }
     logger.log(Level.INFO, "SPINNING ...");
-    // OutputTrace.pdf was generated with these parameter values (using only first 3 params as per spec)
     gameEngine.spinSpinner(100, 1000, 200, 50, 500, 25);
     
   }

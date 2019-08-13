@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b43b4966-0eab-4673-9ecf-3e81a346594f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/CoinImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/CoinImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/CoinPairImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/CoinPairImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GameEngineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GameEngineImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/SimplePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/SimplePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/SimpleTestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/SimpleTestClient.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -24,6 +20,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/SimpleTestClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="58" column="4" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/interfaces/CoinPair.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -68,20 +76,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/GameEngineCallbackImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
+            <state relative-caret-position="382">
               <caret line="49" column="106" selection-start-line="49" selection-start-column="106" selection-end-line="49" selection-end-column="106" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/client/MyTestClient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -104,7 +103,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/SimplePlayer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="602">
@@ -163,15 +162,15 @@
         <option value="$PROJECT_DIR$/src/SimplePlayer.java" />
         <option value="$PROJECT_DIR$/src/model/enumeration/CoinFace.java" />
         <option value="$PROJECT_DIR$/src/model/interfaces/Player.java" />
-        <option value="$PROJECT_DIR$/src/model/interfaces/GameEngine.java" />
         <option value="$PROJECT_DIR$/src/client/MyTestClient.java" />
         <option value="$PROJECT_DIR$/src/model/enumeration/BetType.java" />
         <option value="$PROJECT_DIR$/src/view/GameEngineCallbackImpl.java" />
-        <option value="$PROJECT_DIR$/src/client/SimpleTestClient.java" />
         <option value="$PROJECT_DIR$/src/model/CoinPairImpl.java" />
         <option value="$PROJECT_DIR$/src/model/CoinImpl.java" />
         <option value="$PROJECT_DIR$/src/model/GameEngineImpl.java" />
         <option value="$PROJECT_DIR$/src/model/SimplePlayer.java" />
+        <option value="$PROJECT_DIR$/src/model/interfaces/GameEngine.java" />
+        <option value="$PROJECT_DIR$/src/client/SimpleTestClient.java" />
       </list>
     </option>
   </component>
@@ -246,24 +245,6 @@
               <item name="CoinGame" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CoinGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CoinGame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CoinGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CoinGame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CoinGame" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CoinGame" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -344,16 +325,16 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.50132275" side_tool="true" weight="0.12966916" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.4535032" visible="true" weight="0.1248666" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.4535032" visible="true" weight="0.1248666" />
       <window_info id="Structure" order="6" sideWeight="0.5464968" side_tool="true" visible="true" weight="0.1248666" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32978722" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49950346" visible="true" weight="0.304078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49950346" visible="true" weight="0.304078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39982268" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32978722" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3129771" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.31294325" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5004965" side_tool="true" weight="0.32978722" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32978722" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32978722" />
@@ -405,44 +386,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/SimpleTestClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="90" column="43" selection-start-line="90" selection-start-column="43" selection-end-line="90" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/interfaces/CoinPair.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/GameEngineCallbackImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="106" selection-start-line="49" selection-start-column="106" selection-end-line="49" selection-end-column="106" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/client/MyTestClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/interfaces/GameEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -512,6 +459,40 @@
             <element signature="e#753#754#0" expanded="true" />
             <element signature="e#1676#1677#0" expanded="true" />
             <element signature="e#1706#1707#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/MyTestClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/GameEngineCallbackImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="49" column="106" selection-start-line="49" selection-start-column="106" selection-end-line="49" selection-end-column="106" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/interfaces/GameEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/SimpleTestClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="58" column="4" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
