@@ -80,10 +80,10 @@ public class GameEngineImpl implements GameEngine {
   @Override
   public void addPlayer(Player player) {
     boolean idAlreadyExists = false;
-    for (int i = 0; i < this.players.size(); i++) {
-      if (player.getPlayerId() == this.players.get(i).getPlayerId()) {
+    for (int i = 0; i < players.size(); i++) {
+      if (player.getPlayerId() == players.get(i).getPlayerId()) {
         idAlreadyExists = true;
-        this.players.set(i, player);
+        players.set(i, player);
         break;
       }
     }
@@ -95,9 +95,9 @@ public class GameEngineImpl implements GameEngine {
   @Override
   public Player getPlayer(String id) {
     Player player = null;
-    for (int i = 0; i < this.players.size(); i++) {
-      if (this.players.get(i).getPlayerId() == id) {
-        player = this.players.get(i);
+    for (int i = 0; i < players.size(); i++) {
+      if (players.get(i).getPlayerId() == id) {
+        player = players.get(i);
         break;
       }
     }
@@ -106,22 +106,22 @@ public class GameEngineImpl implements GameEngine {
   
   @Override
   public boolean removePlayer(Player player) {
-    return this.players.remove(player);
+    return players.remove(player);
   }
   
   @Override
   public void addGameEngineCallback(GameEngineCallback gameEngineCallback) {
-    this.gameEngineCallbacks.add(gameEngineCallback);
+    gameEngineCallbacks.add(gameEngineCallback);
   }
   
   @Override
   public boolean removeGameEngineCallback(GameEngineCallback gameEngineCallback) {
-    return this.gameEngineCallbacks.remove(gameEngineCallback);
+    return gameEngineCallbacks.remove(gameEngineCallback);
   }
   
   @Override
   public Collection<Player> getAllPlayers() {
-    return this.players;
+    return players;
   }
   
   @Override

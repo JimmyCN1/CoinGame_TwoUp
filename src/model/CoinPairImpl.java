@@ -23,16 +23,20 @@ public final class CoinPairImpl implements CoinPair {
   
   @Override
   public boolean equals(Object coinPair) {
-    return equals(coinPair);
+    if (coinPair == null || (coinPair != null && (coinPair.getClass() != getClass()))) {
+      return false;
+    }
+    CoinPair coinPairCast = (CoinPair) coinPair;
+    return equals(coinPairCast);
   }
   
   @Override
   public boolean equals(CoinPair coinPair) {
-    return this.coinPair[0].equals(coinPair.getCoin1()) && this.coinPair[1].equals(coinPair.getCoin2());
+    return this.getCoin1().equals(coinPair.getCoin1()) && getCoin2().equals(coinPair.getCoin2());
   }
   
   @Override
   public String toString() {
-    return String.format("%s, %s", this.coinPair[0].toString(), this.coinPair[1].toString());
+    return String.format("%s, %s", getCoin1().toString(), getCoin2().toString());
   }
 }

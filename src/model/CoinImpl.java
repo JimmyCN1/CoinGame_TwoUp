@@ -30,30 +30,34 @@ public class CoinImpl implements Coin {
   
   @Override
   public void flip() {
-    if (this.coinFace == CoinFace.HEADS) {
-      this.coinFace = CoinFace.TAILS;
+    if (coinFace == CoinFace.HEADS) {
+      coinFace = CoinFace.TAILS;
     } else {
-      this.coinFace = CoinFace.HEADS;
+      coinFace = CoinFace.HEADS;
     }
   }
   
   @Override
   public boolean equals(Object coin) {
-    return equals(coin);
+    if (coin == null || (coin != null && (coin.getClass() != getClass()))) {
+      return false;
+    }
+    Coin coinCast = (Coin) coin;
+    return equals(coinCast);
   }
   
   @Override
   public boolean equals(Coin coin) {
-    return this.coinFace == coin.getFace();
+    return coinFace == coin.getFace();
   }
   
   @Override
   public String toString() {
-    return String.format("Coin %s: %s", this.coinNumber, coinFaceToTitleCaseString());
+    return String.format("Coin %s: %s", coinNumber, coinFaceToTitleCaseString());
   }
   
   private String coinFaceToTitleCaseString() {
-    if (this.coinFace == CoinFace.HEADS) {
+    if (coinFace == CoinFace.HEADS) {
       return "Heads";
     } else {
       return "Tails";
