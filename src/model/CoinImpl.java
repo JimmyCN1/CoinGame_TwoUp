@@ -48,8 +48,14 @@ public class CoinImpl implements Coin {
   
   @Override
   public boolean equals(Coin coin) {
-    return coinFace == coin.getFace();
+    return coinFace.equals(coin.getFace());
   }
+  
+  //TODO:
+//  @Override
+//  public int hashCode() {
+//    return 0;
+//  }
   
   @Override
   public String toString() {

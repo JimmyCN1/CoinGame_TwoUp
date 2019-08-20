@@ -35,6 +35,12 @@ public final class CoinPairImpl implements CoinPair {
     return this.getCoin1().equals(coinPair.getCoin1()) && getCoin2().equals(coinPair.getCoin2());
   }
   
+  //TODO:
+//  @Override
+//  public int hashCode() {
+//    return 0;
+//  }
+  
   @Override
   public String toString() {
     return String.format("%s, %s", getCoin1().toString(), getCoin2().toString());
