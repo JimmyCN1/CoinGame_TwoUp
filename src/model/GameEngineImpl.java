@@ -19,22 +19,38 @@ public class GameEngineImpl implements GameEngine {
   
   @Override
   public void spinPlayer(Player player, int initialDelay1, int finalDelay1, int delayIncrement1, int initialDelay2, int finalDelay2, int delayIncrement2) throws IllegalArgumentException {
-    while (initialDelay1 <= finalDelay1) {
-      flipCoins(player);
-      timeUntilNextFlip(initialDelay1);
-      initialDelay1 += delayIncrement1;
+    if (delayIncrement1 < 0 || delayIncrement2 < 0) {
+      throw new IllegalArgumentException();
+    } else if (finalDelay1 < initialDelay1 || finalDelay2 < initialDelay2) {
+      throw new IllegalArgumentException();
+    } else if (delayIncrement1 > (finalDelay1 - initialDelay1) || delayIncrement2 > (finalDelay2 - initialDelay2)) {
+      throw new IllegalArgumentException();
+    } else {
+      while (initialDelay1 <= finalDelay1) {
+        flipCoins(player);
+        timeUntilNextFlip(initialDelay1);
+        initialDelay1 += delayIncrement1;
+      }
+      gameEngineCallback.playerResult(player, player.getResult(), this);
     }
-    gameEngineCallback.playerResult(player, player.getResult(), this);
   }
   
   @Override
   public void spinSpinner(int initialDelay1, int finalDelay1, int delayIncrement1, int initialDelay2, int finalDelay2, int delayIncrement2) throws IllegalArgumentException {
-    while (initialDelay1 <= finalDelay1) {
-      flipCoins();
-      timeUntilNextFlip(initialDelay1);
-      initialDelay1 += delayIncrement1;
+    if (delayIncrement1 < 0 || delayIncrement2 < 0) {
+      throw new IllegalArgumentException();
+    } else if (finalDelay1 < initialDelay1 || finalDelay2 < initialDelay2) {
+      throw new IllegalArgumentException();
+    } else if (delayIncrement1 > (finalDelay1 - initialDelay1) || delayIncrement2 > (finalDelay2 - initialDelay2)) {
+      throw new IllegalArgumentException();
+    } else {
+      while (initialDelay1 <= finalDelay1) {
+        flipCoins();
+        timeUntilNextFlip(initialDelay1);
+        initialDelay1 += delayIncrement1;
+      }
+      applyBetResults(spinner);
     }
-    applyBetResults(spinner);
   }
   
   private void flipCoins(Player player) {

@@ -52,10 +52,13 @@ public class CoinImpl implements Coin {
   }
   
   //TODO:
-//  @Override
-//  public int hashCode() {
-//    return 0;
-//  }
+  @Override
+  public int hashCode() {
+    final int prime = 97;
+    int result = 1;
+    result = prime * result + ((this.coinFace == null) ? 0 : this.coinFace.hashCode());
+    return result;
+  }
   
   @Override
   public String toString() {

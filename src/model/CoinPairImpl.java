@@ -36,10 +36,10 @@ public final class CoinPairImpl implements CoinPair {
   }
   
   //TODO:
-//  @Override
-//  public int hashCode() {
-//    return 0;
-//  }
+  @Override
+  public int hashCode() {
+    return this.getCoin2().hashCode() + this.getCoin2().hashCode();
+  }
   
   @Override
   public String toString() {

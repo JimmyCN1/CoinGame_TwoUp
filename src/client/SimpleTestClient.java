@@ -3,9 +3,11 @@ package client;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import model.CoinImpl;
 import model.GameEngineImpl;
 import model.SimplePlayer;
 import model.enumeration.BetType;
+import model.interfaces.Coin;
 import model.interfaces.GameEngine;
 import model.interfaces.Player;
 import validate.Validator;
